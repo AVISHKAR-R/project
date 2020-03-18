@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FORM</title>
+</head>
+<style>body {
+    border-radius: 2px;
+    background-color: none;
+    border: solid 2px blueviolet;
+    border-width: 100px;
+    padding: 100px;
+    padding-left: 500px;
+}
+label {
+    font-size: 15px;
+}
+h1 {
+    font-size: 30px;
+    text-decoration: underline;
+}
+#id {
+    border: solid 1px;
+    padding-left: 30px;
+}
+input {
+    display: block;
+    padding: 5px;
+    position: relative;
+    margin-left: 80px;
+}
+span {
+    margin-left: 80px;
+    color: red;
+}</style>
+<script>function validate() {
+    var a = document.forms["vald"]["fname"];
+    var b = document.forms["vald"]["lname"];
+    var c = document.forms["vald"]["email"];
+    var d = document.forms["vald"]["user"];
+    var e = document.forms["vald"]["pass"];
+    var f = document.forms["vald"]["cpass"];
+    var mail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+    if (a.value == "") {
+        document.getElementById("errora").innerHTML = "*Enter your first name";
+        return false;
+    }
+    if (a.value1 != "") {
+        document.getElementById("errora").innerHTML = "";
+    }
+    if (b.value == "") {
+        document.getElementById("errorb").innerHTML = "*Enter your last name";
+        return false;
+    }
+    if (b.value1 != "") {
+        document.getElementById("errorb").innerHTML = "";
+    }
+    if (c.value == "") {
+        document.getElementById("errorc").innerHTML = "*Enter your email ID";
+        return false;
+
+    }
+    if (!c.value.match(mail)) {
+        document.getElementById("errorc").innerHTML = "*You have entered an invalid email address!";
+        return false;
+        
+    }
+    if (d.value == "") {
+        document.getElementById("errord").innerHTML = "*Enter your User ID";
+        return false;
+    }
+    if (d.value1 != "") {
+        document.getElementById("errord").innerHTML = "";
+    }
+    if (e.value == "") {
+        document.getElementById("errore").innerHTML = "*Enter the Password";
+        return false;
+    }
+    if (f.value == "") {
+        document.getElementById("errorf").innerHTML = "*enter the confirmation password";
+        return false
+    }
+    if (e.value != f.value) {
+        document.getElementById("errore").innerHTML = "*password not matching";
+        document.getElementById("errorf").innerHTML = "*password not matching";
+
+        return false;
+    }
+    if (a.value != "" && b.value != "" && c.value != "" && d.value != "" && e.value != "" &&
+        f.value != "") {
+        alert("Successfully Created");
+    }
+}</Script>
+<h1>FORM:</h1>
+<body>
+
+    <form name="vald" onsubmit="return validate()" method="post">
+        <label for="fname">First Name:</label><input type="text" id="fname" name="fname" /><span id="errora"></span> <br>
+        <label for="lname">Last Name:</label><input type="text" id="lname" name="lname" /><span id="errorb"></span> <br>
+        <label for="email">Email:</label><input type="email" id="email" name="email"><span id="errorc"></span> <br>
+        <label for="user">User ID:</label><input type="text" id="user" name="user"><span id="errord"></span> <br>
+        <label for="pass">Password:</label><input type="password" id="pass" name="pass"><span id="errore"></span><br>
+        <label for="cpass">Confirm Password:</label><input type="password" id="cpass" name="cpass"><span id="errorf"></span><br>
+        <input type="submit" value="Submit" name="submit" id="submit">
+    </form>
+</body
+</html>
